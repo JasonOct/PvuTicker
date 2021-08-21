@@ -44,7 +44,7 @@ async def taskUpdateActivity():
 
             await guild.me.edit(nick="${:.2f}".format(getPvuPerUSD())+"/PVU")
 
-        activityStatus = "{:,}".format(round(getPvuPerBNB())) + " BNB"
+        activityStatus = "{:.2f}".format(getPvuPerBNB()) + " BNB"
 
         await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=activityStatus))
         await asyncio.sleep(WAIT_DURATION)
