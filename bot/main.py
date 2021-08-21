@@ -7,14 +7,14 @@ from discord_slash import SlashCommand, SlashContext
 client = commands.Bot(command_prefix=";")
 slash = SlashCommand(client, sync_commands=True)
 
-coingecko = "https://api.coingecko.com/api/v3/simple/price?ids=plant-vs-undead-token&vs_currencies=usd,idr,bnb"
+coingecko = "https://api.coingecko.com/api/v3/simple/price?ids=plant-vs-undead-token&vs_currencies=usd,bnb"
 WAIT_DURATION = int(os.environ['WAIT_DURATION'])
 TOKEN = os.environ['DISCORD_TOKEN']
 
 @client.event
 async def on_ready():
     print('We have logged in as {0.user}'.format(client))
-    print(f"$ {getPvuPerUSD()} - RP {getPvuPerIDR()} - BNB {getPvuPerBNB()}")
+    print(f"$ {getPvuPerUSD()} - BNB {getPvuPerBNB()}")
     asyncio.create_task(taskUpdateActivity())
 
 
@@ -44,7 +44,7 @@ async def taskUpdateActivity():
 
             await guild.me.edit(nick="${:.2f}".format(getPvuPerUSD())+"/PVU")
 
-        activityStatus = random.choice(["{:,}".format(round(getPvuPerIDR())) + " IDR", f"{getPvuPerBNB()} BNB"])
+        activityStatus = "{:,}".format(round(getPvuPerBNB())) + " BNB"
 
         await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=activityStatus))
         await asyncio.sleep(WAIT_DURATION)
