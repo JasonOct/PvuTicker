@@ -8,8 +8,8 @@ import numpy as np
 client = commands.Bot(command_prefix="$")
 
 coingecko = "https://api.coingecko.com/api/v3/simple/price?ids=plant-vs-undead-token&vs_currencies=usd,bnb"
-WAIT_DURATION = 10 #int(os.environ['WAIT_DURATION'])
-TOKEN = 'ODc4NTQwNDYwMTk1NDU5MTYy.YSCqkA.LHpC313lRjFhUjy6fx65z62m4X0' #os.environ['DISCORD_TOKEN']
+WAIT_DURATION = int(os.environ['WAIT_DURATION'])
+TOKEN = os.environ['DISCORD_TOKEN']
 alertValues = []
 alertValuesUsers = []
 alertValuesUsersIDs = []
