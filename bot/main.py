@@ -6,7 +6,7 @@ from discord_slash import SlashCommand, SlashContext
 from tabulate import tabulate
 import numpy as np
 
-client = commands.Bot(command_prefix=";")
+client = commands.Bot(command_prefix="$")
 slash = SlashCommand(client, sync_commands=True)
 
 coingecko = "https://api.coingecko.com/api/v3/simple/price?ids=plant-vs-undead-token&vs_currencies=usd,bnb"
@@ -77,7 +77,7 @@ async def taskUpdateActivity():
         await asyncio.sleep(WAIT_DURATION)
         
 
-@client.command((
+@client.command(
 	help="Looks like you need some help.",
 	brief="Sets a price alert"
 )
@@ -87,7 +87,7 @@ async def alert(ctx, targetValue):
     alertValuesUsersIDs.add(ctx.message.author.id)
     await ctx.channel.send("{} PVU/USDT price alert set at $".format(ctx.message.author.mention) + targetValue)
     
-@client.command((
+@client.command(
 	help="Looks like you need some help.",
 	brief="Show current price alerts"
 )
@@ -95,7 +95,7 @@ async def showalerts(ctx, targetValue):
     dataToPrint = [alertValues, alertValuesUsers]
     await ctx.channel.send(tabulate(dataToPrint, headers=["Price Alert", "Set by"]))
     
-@client.command((
+@client.command(
 	help="Looks like you need some help.",
 	brief="Remove price alerts set by you."
 )
@@ -122,7 +122,7 @@ async def removemyalerts(ctx, targetValue):
     dataToPrint = [deletedAlertValues, deletedAlertValuesUsers]
     await ctx.channel.send("The following price alerts were removed: \n" + tabulate(dataToPrint, headers=["Price Alert", "Set by"]))
 
-@client.command((
+@client.command(
 	help="Looks like you need some help.",
 	brief="Remove all price alerts."
 )
