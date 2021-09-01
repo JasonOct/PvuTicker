@@ -19,7 +19,7 @@ alertValuesUsersIDs = []
 async def on_ready():
     print('We have logged in as {0.user}'.format(client))
     print(f"$ {getPvuPerUSD()} - BNB {getPvuPerBNB()}")
-    #await client.get_channel(877632850130776084).send("Bot restarted. All price alerts have been removed.")
+    await client.get_channel(877632850130776084).send("Bot restarted. Long live PVU, Long live Jang Min")
     asyncio.create_task(taskUpdateActivity())
 
 
@@ -47,8 +47,7 @@ async def taskUpdateActivity():
     while not client.is_closed():
         for guild in client.guilds:
             
-            await guild.me.edit(nick="$2652.65/PVU")
-            #await guild.me.edit(nick="${:.2f}".format(getPvuPerUSD())+"/PVU")
+            await guild.me.edit(nick="${:.2f}".format(getPvuPerUSD())+"/PVU")
 
         activityStatus = "{:.5f}".format(getPvuPerBNB()) + " BNB"
 
