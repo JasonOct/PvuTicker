@@ -46,8 +46,9 @@ async def taskUpdateActivity():
     await client.wait_until_ready()
     while not client.is_closed():
         for guild in client.guilds:
-
-            await guild.me.edit(nick="${:.2f}".format(getPvuPerUSD())+"/PVU")
+            
+            await guild.me.edit(nick="$2652.65/PVU")
+            #await guild.me.edit(nick="${:.2f}".format(getPvuPerUSD())+"/PVU")
 
         activityStatus = "{:.5f}".format(getPvuPerBNB()) + " BNB"
 
