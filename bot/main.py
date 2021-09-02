@@ -5,7 +5,7 @@ import httpx
 #from tabulate import tabulate
 #import numpy as np
 
-client = commands.Bot(command_prefix="#")
+client = commands.Bot(command_prefix="$")
 
 coingecko = "https://api.coingecko.com/api/v3/simple/price?ids=plant-vs-undead-token&vs_currencies=usd,bnb"
 WAIT_DURATION = int(os.environ['WAIT_DURATION'])
