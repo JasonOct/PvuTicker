@@ -75,6 +75,13 @@ async def taskUpdateActivity():
         await asyncio.sleep(WAIT_DURATION)
         
 
+@client.command(
+	help="Looks like you need some help.",
+	brief="Sets a price alert"
+)
+async def copium(ctx):
+    await ctx.channel.send("In Lord Jang Min we trust.")
+
 #@client.command(
 #	help="Looks like you need some help.",
 #	brief="Sets a price alert"
