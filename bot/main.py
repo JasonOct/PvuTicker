@@ -20,7 +20,7 @@ async def on_ready():
     print('We have logged in as {0.user}'.format(client))
     print(f"$ {getPvuPerUSD()} - BNB {getPvuPerBNB()}")
     #await client.get_channel(877632850130776084).send("Bot restarted. Long live PVU, Long live Jang Min")
-    await client.get_channel(877632850130776084).send("Wtf how many of those did you buy ng")
+    await client.get_channel(877632850130776084).send("I need to re-deploy the bot to send one message, feels bad :(")
     asyncio.create_task(taskUpdateActivity())
 
 
